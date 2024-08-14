@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email/Text Verifier</title>
+    <!-- Inline CSS -->
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background Overlay */
+        body {
+            background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALcAwgMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAJBABAQEBAAICAgICAwAAAAAAAAERAhIxAyFRYSJBBBNxkbH/xAAZAQEBAQEBAQAAAAAAAAAAAAABAAIDBAX/xAAcEQEBAQEBAAMBAAAAAAAAAAAAARECEhMhMQP/2gAMAwEAAhEDEQA/APrf2ixWh6Hz6gU8LohNwQhqZP6Gp08R1XsXmAeSSMFkVpFkpRQBiIjKlK9+i6+hyuyJM/sbnsW57Z9db7I1Xlnpc+S/ljp6sErXy1P0idKlRtPTT9Ah14UlaVPpzd02FVWo6qZqajF6RZGHAeJFU6qliST0gQMMBIgBUh6O9FC6SR3d9s6rpLUc6RgIA50QSXoQEdelUqqa5vVU1nV1Fic6SolcIOQ7Bo0NJqVppFTSw8OcnWSCqi1ItGkRZWXdIuqjrK2gAsAGEARkkAWmU9DyK0sDk9NK0tHSZpZo+lF4qkSwk5WmDAbEbRVzkdcW+irEK2RF2e4LUyLWeC04YKWDFwUpH2jpd1H3SzUAWAsmAEDxNO0giBhF3UDNVOXN6EWCRd5GJYnKci8GIyFIrnhUkV9MtyI8B69L8k2o5Gfyc/x9ubp0d/f1GfjK3HHqMcEVZIUhYPlWDmRWLUzsTZjXEXlaryyqa065Z9RpjACLUDISnUiA+wk9PmT8LxnxWji9cLCxcPxWnGeKk1XiJFqxJ6qc6m84tKbUW07BhZtKQuv4/tphzmfgjNcvXKHVfj8vX0z7+Kc/2p0x1zjLbFzpBlmKPExURLx1n38f4jb6P/hSrzrgszrKVd/+udX7hz/F+L+//T6jPx152ftfPHfXqa9Hn/E+G++I1+L4ePj9ci9tc/xryvH9UPZyfif9EPbXwObmLiZFitwLlR9Hyy1F5vo8VyfVz0G8R/X7Kyr5kt2mEw8LfReFdEknoTlrR4jDFRp1zJ6jL0lmKtY/NN/tXWse9vsxz7v0yw14VjbliYYw5EoIviZ7OcxUjOtyHJh5vs5DDchTZ6aS77Z2iWjD+NdJG0BanAqlI1qE5accfsTFcstyKzEdzfS6AUQeX8Rfr0y66/BxnW061WueVrelhlPqxj1VWs61Gei8tR7Vche/RjmJ+02NPFPUq0YnFc8iK9FSKyH9FLnsr1A2qdBnqp0sWnS3CvSbVjNq/ImehYNdI9J5umy6jV89MqekbjXrtP8As/bNNqxel3tnpaRkYvSpbevpr9o+KTV24K3yVTaLUdUs2nZ+xwztafHUzLtafSe4qy+OovW+xGqmRVAaCbbSp1KGhUqC1DcXanU0pUzaoFoS1rz3+fppOt9OfqavijHSdNaVo0k1TlT0f0m0ippaLS1MNOOs9NN1huNJ3KManX0OkU72lQWpo8rPVUilj8P/AGdZmn5IxJW1vOquVnzFQNQVNp2p6qVHVxHkdqDjFqtETI05iRYF4EcVhZnpeFQ6DVSs8pgKtZdVVRmmCpvQ07wmlkXql5Wf2QLOq8ta+/TCRrxevwMMqqitEUGkU5VNBGLkzkae/WI6obpXpNpalpi06QEQXy05ZxXNFaiwQDTa1M+wA0B4gIjxiLDBFFn8WPf0AYz2kqAXM9gnVnoBKL8xLvsBFWwtgAJXqp0Aii4kBCg4AgqQ5AA1FgANP//Z') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        /* Container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.5em;
+            color: #4a90e2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Main Section */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        textarea {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1em;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #357abd;
+            transform: scale(1.05);
+        }
+
+        /* Result */
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #27ae60;
+            background-color: #eafaf1;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .failure {
+            color: #c0392b;
+            background-color: #fbe9e7;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Email/Text Verifier</h1>
+            <p>Check if your email or text is legitimate or suspicious.</p>
+        </header>
+        
+        <main>
+            <form id="verification-form">
+                <label for="text-input"></label>
+                <textarea id="text-input" rows="15" cols="50" placeholder="Paste your email or text here..."></textarea>
+                <p><button type="submit">Verify</button></p>
+            </form>
+            <div id="result">
+                <!-- Result will be displayed here -->
+            </div>
+        </main>
+
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("verification-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            const textInput = document.getElementById("text-input").value;
+            fetch('/verify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: textInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById("result");
+                if (data.result) {
+                    resultDiv.innerHTML = `<span class="success">${data.message}</span>`;
+                } else {
+                    resultDiv.innerHTML = `<span class="failure">${data.message}</span>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>

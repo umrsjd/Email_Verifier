@@ -1,0 +1,136 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1542144612-1f785ba6e10a') no-repeat center center/cover;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+/* Container */
+.container {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5em;
+    color: #4a90e2;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Main Section */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+label {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    width: 100%;
+}
+
+button {
+    background-color: #4a90e2;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1em;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #357abd;
+    transform: scale(1.05);
+}
+
+/* Result */
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#result span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.success {
+    color: #27ae60;
+    background-color: #eafaf1;
+}
+
+.failure {
+    color: #c0392b;
+    background-color: #fbe9e7;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
